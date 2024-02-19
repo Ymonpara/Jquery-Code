@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Classes</title>
+  <style>
+    .class1 {
+      background-color: #ff9999;
+    }
+
+    .class2 {
+      background-color: #99ff99;
+    }
+
+    .class3 {
+      background-color: #9999ff;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+  <button id="button1">Toggle Class 1</button>
+  <button id="button2">Toggle Class 2</button>
+  <button id="button3">Toggle Class 3</button>
+
+  <div id="targetElement" class="class1">This is the target element</div>
+
+  <script>
+    $(document).ready(function() {
+      $('#button1').click(function() {
+        $('#targetElement').removeClass('class2 class3').addClass('class1');
+      });
+      $('#button2').click(function() {
+        $('#targetElement').removeClass('class1 class3').addClass('class2');
+      });
+      $('#button3').click(function() {
+        $('#targetElement').removeClass('class1 class2').addClass('class3');
+      });
+    });
+  </script>
+
+</body>
+</html>
