@@ -1,0 +1,61 @@
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<div>
+  <div class="content">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non quam
+    euismod, congue eros vitae, eleifend erat. Vivamus id interdum urna.
+    Quisque rhoncus felis a leo tincidunt, a scelerisque quam ullamcorper.
+
+    Phasellus et tortor eget nulla convallis feugiat eu sit amet lectus.
+    Nullam suscipit, urna a faucibus laoreet, sem velit cursus felis, ac
+    ullamcorper quam elit eu risus.
+  </div>
+  <button class="read-more">Read More</button>
+</div>
+<div>
+  <div class="content">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non quam
+    euismod, congue eros vitae, eleifend erat. Vivamus id interdum urna.
+    Quisque rhoncus felis a leo tincidunt, a scelerisque quam ullamcorper.
+
+    Phasellus et tortor eget nulla convallis feugiat eu sit amet lectus.
+    Nullam suscipit, urna a faucibus laoreet, sem velit cursus felis, ac
+    ullamcorper quam elit eu risus.
+  </div>
+  <button class="read-more">Read More</button>
+</div>
+
+<style>
+  .additional-content {
+  display: none;
+}
+
+.expanded .additional-content {
+  display: block;
+}
+.content{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  width: 30%;
+}
+.content.expanded{
+  display: block !important;
+}
+</style>
+
+<script>
+  $(document).ready(function () {
+  $(".read-more").click(function () {
+    var $content = $(this).prev(".content");
+    $content.toggleClass("expanded");
+    $(this).toggleClass("expanded");
+
+    if ($(this).hasClass("expanded")) {
+      $(this).text("Read Less");
+    } else {
+      $(this).text("Read More");
+    }
+  });
+});
+</script>
