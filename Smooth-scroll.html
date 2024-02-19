@@ -1,0 +1,102 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<div class="js-cont">
+  <div class="js-scroll">
+      <div class="full-screen">
+          <h1>Easy smooth scroll ✌️</h1>
+      </div>
+      <div class="full-screen">
+      </div>
+      <div class="content">
+  
+          <p>Or just use this real good lib : <a href="https://github.com/baptistebriel/smooth-scrolling">Smooth Scrolling</a></p>
+          
+          <p>Follow me on <a href="https://codepen.io/origine/">Codepen</a> or on <a href="https://twitter.com/thomAufresne">Twitter</a> for more front-end related stuff.</p>
+      </div>
+  </div>
+</div>
+<style>
+  /* Smooth scroll stuff */
+ html {
+	 overflow-x: hidden;
+	 overflow-y: scroll;
+}
+ .js-cont {
+	 position: relative;
+	 width: 100%;
+	 height: 100%;
+}
+ .js-scroll {
+	 position: fixed;
+	 z-index: 10;
+	 top: 0;
+	 left: 0;
+	 overflow: hidden;
+	 width: 100%;
+	 will-change: transform;
+}
+/* Content stuff */
+ body {
+	 position: relative;
+	 font-family: 'Courier';
+	 font-size: 16px;
+	 overflow: hidden;
+	 width: 100%;
+	 height: 2000px;
+	 color: #fff;
+	 -webkit-font-smoothing: antialiased;
+	 margin: 0;
+	 background: #090446;
+}
+ body:after {
+	 content: '';
+	 background: #090446;
+	 background: linear-gradient(to bottom, #090446 0%, #5f0d18 100%);
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 right: 0;
+	 height: 100%;
+	 z-index: -1;
+}
+ .full-screen {
+	 height: 100vh;
+	 display: flex;
+	 flex-direction: column;
+	 justify-content: center;
+	 align-items: center;
+	 text-align: center;
+}
+ .full-screen h1 {
+	 margin: 0;
+	 font-size: 50px;
+	 font-weight: lighter;
+}
+ .content {
+	 width: 76%;
+	 margin: 0 auto 300px;
+}
+ .content a {
+	 color: #fff;
+}
+ .content span {
+	 font-weight: bold;
+}
+ 
+</style>
+
+<script>
+  const height = $('.js-scroll').eq(0).outerHeight() - 1;
+const speed = 0.05;
+let offset = 0;
+$('body').css('height', Math.floor(height) + 'px');
+function smoothScroll() {
+    offset += (window.pageYOffset - offset) * speed;
+    const scroll = "translateY(-" + offset + "px) translateZ(0)";
+    $('.js-scroll').eq(0).css('transform', scroll);
+    requestAnimationFrame(smoothScroll);
+}
+smoothScroll();
+
+</script>
