@@ -1,0 +1,100 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<div class="popup_main">
+  <button class="open_popup">Open Pop Up 1</button>
+  <div class="popup_body">
+    <div class="popup_back"></div>
+      <div class="popup_contain">
+        <div class="popup_close">x</div>
+          Pop Up Body 1
+      </div>
+  </div>
+</div>
+
+<br>
+<div class="popup_main">
+  <button class="open_popup">Open Pop Up 2</button>
+  <div class="popup_body">
+    <div class="popup_back"></div>
+      <div class="popup_contain">
+        <div class="popup_close">x</div>
+          Pop Up Body 2
+      </div>
+  </div>
+</div>
+
+<style>
+  body{
+  background:#ddd;
+}
+.open_popup{
+  background:tomato;
+  border:none;
+  padding:5px 15px;
+  color:#fff;
+}
+.popup_body{
+  display:none;
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -o-transition: 300ms;
+    -ms-transition: 300ms;
+    transition: 300ms;
+}
+.popup_body_show{
+  display:block;
+  -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -o-transition: 300ms;
+    -ms-transition: 300ms;
+    transition: 300ms;
+}
+.popup_back{
+  background: rgba(0,0,0,0.4);
+  position: fixed;
+  left:0;right:0;top:0;bottom:0;
+}
+.popup_contain{
+  position:relative;
+  background:#fff;
+  min-width:300px;
+  max-width:80%;
+  margin:100px auto 50px;
+  min-height:150px;
+  padding: 10px 20px;
+}
+.popup_close{
+  background:red;
+  padding:3px 10px 5px;
+  position: absolute;
+  right:-10px;
+  top:-10px;
+  color: #fff;
+  border-radius: 50%;
+}
+</style>
+
+
+<script>
+   $(".open_popup").click(function () {
+   $(this).parent(".popup_main").children(".popup_body").addClass("popup_body_show");
+   });
+ $(".popup_close").click(function () {
+   $(".popup_body").removeClass("popup_body_show");
+   });
+ $(".popup_back").click(function () {
+   $(".popup_body").removeClass("popup_body_show");
+   });
+
+
+  //  when popup render then use this 
+  $(document).ready(function () {
+    $(".popup-button").click(function () {
+      $("html").addClass("disable-body");
+    });
+    $('body').on('click', '.mfp-close-btn-in', function () {
+      $("html").removeClass('disable-body');
+    });
+  });
+</script>
